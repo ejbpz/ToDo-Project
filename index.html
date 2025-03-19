@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+  <main class="main">
+    <div class="main__container">
+      <div class="main__nav">
+        <button class="main__delete-all" id="ClearStorage">
+          <span class="material-icons">delete_forever</span>Clear All
+        </button>
+      </div>
+
+      <section class="main__create">
+        <h2 class="main__subtitle">What Do You Wanna Do?</h2>
+        <div class="main__wrap-task">
+          <input type="text" class="main__input" id="TodoTask" name="NewTask">
+          <button class="main__add-task tasks" id="ButtonAddTask">
+            <span class="material-icons">add</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="main__todo">
+        <h2 class="main__subtitle" id="TitleTodo">To Do</h2>
+        <div class="main__tasks" id="ContainerTodo"></div>
+      </section>
+
+      <section class="main__completed">
+        <h2 class="main__subtitle" id="TitleCompleted">Completed</h2>
+        <div class="main__tasks-completed" id="ContainerCompleted"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
