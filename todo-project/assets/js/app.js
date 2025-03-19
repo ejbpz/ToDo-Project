@@ -57,6 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem(taskContainer.id, inputTask.value + '-ToDO')
   }
 
+  const deleteAllTasks = () => {
+    localStorage.clear();
+
+    while(ContainerTodo.firstChild) {
+      ContainerTodo.removeChild(ContainerTodo.firstChild);
+    }
+
+    while(ContainerCompleted.firstChild) {
+      ContainerCompleted.removeChild(ContainerCompleted.firstChild);
+    }
+    
+    TitlesHidden();
+  }
+
   const changeToCompletedTask = (Input, CheckBox) => {
     CheckBox.checked = true;
     Input.disabled = true;
@@ -174,17 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   ClearStorage.addEventListener('click', () => { 
-    localStorage.clear();
-
-    while(ContainerTodo.firstChild) {
-      ContainerTodo.removeChild(ContainerTodo.firstChild);
-    }
-
-    while(ContainerCompleted.firstChild) {
-      ContainerCompleted.removeChild(ContainerCompleted.firstChild);
-    }
-    
-    TitlesHidden();
+    deleteAllTasks();
   });
 
   ButtonAddTask.addEventListener('click', () => {
@@ -196,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   numberTask = maxKeyTask() + 1;
-  console.log(numberTask);
   
+  deleteAllTasks();
   extractDataLS();
 });
