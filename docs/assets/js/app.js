@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const TitleCompleted = document.querySelector('#TitleCompleted');
   let numberTask;
 
+  const deleteDefaultLocalStorageData = () => {
+    if(localStorage.getItem('theme')) {
+      localStorage.removeItem('theme');
+    }
+    
+    if(localStorage.getItem('language')) {
+      localStorage.removeItem('language');
+    }
+  }
+
   const maxKeyTask = () => {
     let maxNumber = 0;
 
@@ -44,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       changeToDoTask(Input, CheckBox);
     }
     TitlesHidden();
-  };
+  }
 
   const deleteTask = (Button) => {
     Button.parentElement.parentElement.parentElement.parentElement.removeChild(Button.parentElement.parentElement.parentElement)
@@ -84,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let task = localStorage.getItem(CheckBox.parentElement.id);
     localStorage.setItem(CheckBox.parentElement.id, task.split('-')[0] + '-Completed')
-  };
+  }
 
   const changeToDoTask = (Input, CheckBox) => {
     CheckBox.checked = false;
@@ -98,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let task = localStorage.getItem(CheckBox.parentElement.id);
     localStorage.setItem(CheckBox.parentElement.id, task.split('-')[0] + '-ToDo')
-  };
+  }
 
   const createNewTask = (value, id) => {
     let taskContainer = document.createElement('div');
@@ -185,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     TitlesHidden();
-  };
+  }
 
   ClearStorage.addEventListener('click', () => { 
     deleteAllTasks();
@@ -200,7 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   numberTask = maxKeyTask() + 1;
-  
-  deleteAllTasks();
+  deleteDefaultLocalStorageData();
   extractDataLS();
 });
