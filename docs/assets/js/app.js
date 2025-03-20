@@ -148,6 +148,13 @@ document.addEventListener('DOMContentLoaded', () => {
       modifyTask(inputTask, taskContainer);
     });
     
+    inputTask.addEventListener('keypress', (event) => {
+      if(event.key === 'Enter') {
+        modifyTask(inputTask, taskContainer);
+        inputTask.blur();
+      }
+    });
+    
     inputCheckbox.addEventListener('click', () => {
       changeTask(inputCheckbox, inputTask);
     });
@@ -212,6 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
   TodoTask.addEventListener('keypress', (event) => {
     if(event.key === 'Enter') {
       ButtonAddTask.click();
+      TodoTask.blur();
     }
   });
 
