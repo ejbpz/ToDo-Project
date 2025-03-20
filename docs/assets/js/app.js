@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const modifyTask = (inputTask, taskContainer) => {
-    localStorage.setItem(taskContainer.id, inputTask.value + '-ToDO')
+    localStorage.setItem(taskContainer.id, inputTask.value + '-ToDo')
   }
 
   const deleteAllTasks = () => {
@@ -206,6 +206,12 @@ document.addEventListener('DOMContentLoaded', () => {
       createNewTask(TodoTask.value, null);  
       localStorage.setItem(numberTask++, TodoTask.value + '-ToDo');
       TodoTask.value = '';
+    }
+  });
+
+  TodoTask.addEventListener('keypress', (event) => {
+    if(event.key === 'Enter') {
+      ButtonAddTask.click();
     }
   });
 
