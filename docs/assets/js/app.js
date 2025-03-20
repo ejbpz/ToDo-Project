@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
     Input.disabled = true;
     ContainerTodoTasks.removeChild(CheckBox.parentElement);
     ContainerCompleted.appendChild(CheckBox.parentElement);
-    Input.classList.remove('todo__input-task');
     Input.classList.add('completed__input-task');
 
 
@@ -100,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ContainerCompleted.removeChild(CheckBox.parentElement);
     ContainerTodoTasks.appendChild(CheckBox.parentElement);
     Input.classList.remove('completed__input-task');
-    Input.classList.add('todo__input-task');
 
     let task = localStorage.getItem(CheckBox.parentElement.id);
     localStorage.setItem(CheckBox.parentElement.id, task.split('-')[0] + '-ToDo')
@@ -112,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let inputTask = document.createElement('input');
     inputTask.type = 'text';
-    inputTask.classList.add('todo__input-task');
+    inputTask.classList.add('tasks-input');
     inputTask.value = value;
 
     let inputCheckbox = document.createElement('input');
