@@ -97,7 +97,7 @@ button {
   justify-content: center;
 }
 
-.todo__container, .completed__container {
+.tasks-container {
   gap: 10px;
   display: flex;
   flex-direction: column;
@@ -116,7 +116,7 @@ button {
   background: #0000000c;
 }
 
-.todo__check-task, .completed__check-task {
+.tasks-check {
   left: 12px;
 }
 

@@ -86,8 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
     Input.disabled = true;
     ContainerTodoTasks.removeChild(CheckBox.parentElement);
     ContainerCompleted.appendChild(CheckBox.parentElement);
-    CheckBox.classList.remove('todo__check-task');
-    CheckBox.classList.add('completed__check-task');
     Input.classList.remove('todo__input-task');
     Input.classList.add('completed__input-task');
 
@@ -101,8 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     Input.disabled = false;
     ContainerCompleted.removeChild(CheckBox.parentElement);
     ContainerTodoTasks.appendChild(CheckBox.parentElement);
-    CheckBox.classList.remove('completed__check-task');
-    CheckBox.classList.add('todo__check-task');
     Input.classList.remove('completed__input-task');
     Input.classList.add('todo__input-task');
 
@@ -121,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let inputCheckbox = document.createElement('input');
     inputCheckbox.type = 'checkbox';
-    inputCheckbox.classList.add('todo__check-task', 'inside-options');
+    inputCheckbox.classList.add('tasks-check', 'inside-options');
     inputCheckbox.checked = false;
 
     let spanOption = document.createElement('span');
