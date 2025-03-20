@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const TodoTask = document.querySelector('#TodoTask');
-  const ClearStorage = document.querySelector('#ClearStorage');
+  const InputAddTask = document.querySelector('#InputAddTask');
+  const ButtonClearStorage = document.querySelector('#ButtonClearStorage');
   const ButtonAddTask = document.querySelector('#ButtonAddTask');
-  const ContainerTodo = document.querySelector('#ContainerTodo');
+  const ContainerTodoTasks = document.querySelector('#ContainerTodoTasks');
   const ContainerCompleted = document.querySelector('#ContainerCompleted');
 
-  const TitleTodo = document.querySelector('#TitleTodo');
-  const TitleCompleted = document.querySelector('#TitleCompleted');
+  const TitleTodoTasks = document.querySelector('#TitleTodoTasks');
+  const TitleCompletedTasks = document.querySelector('#TitleCompletedTasks');
   let numberTask;
 
   const deleteDefaultLocalStorageData = () => {
@@ -34,16 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const TitlesHidden = () => {
-    if(ContainerTodo.childElementCount == 0 && ContainerCompleted.childElementCount == 0){
-      TitleTodo.style.display = 'none';
+    if(ContainerTodoTasks.childElementCount == 0 && ContainerCompleted.childElementCount == 0){
+      TitleTodoTasks.style.display = 'none';
     } else {
-      TitleTodo.style.display = 'block';
+      TitleTodoTasks.style.display = 'block';
     }
     
     if(ContainerCompleted.childElementCount == 0){
-      TitleCompleted.style.display = 'none';
+      TitleCompletedTasks.style.display = 'none';
     } else {
-      TitleCompleted.style.display = 'block';
+      TitleCompletedTasks.style.display = 'block';
     }
   }
 
@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const deleteAllTasks = () => {
     localStorage.clear();
 
-    while(ContainerTodo.firstChild) {
-      ContainerTodo.removeChild(ContainerTodo.firstChild);
+    while(ContainerTodoTasks.firstChild) {
+      ContainerTodoTasks.removeChild(ContainerTodoTasks.firstChild);
     }
 
     while(ContainerCompleted.firstChild) {
@@ -84,12 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const changeToCompletedTask = (Input, CheckBox) => {
     CheckBox.checked = true;
     Input.disabled = true;
-    ContainerTodo.removeChild(CheckBox.parentElement);
+    ContainerTodoTasks.removeChild(CheckBox.parentElement);
     ContainerCompleted.appendChild(CheckBox.parentElement);
-    CheckBox.classList.remove('main__check-task');
-    CheckBox.classList.add('main__check-completed');
-    Input.classList.remove('main__task');
-    Input.classList.add('main__task-completed');
+    CheckBox.classList.remove('todo__check-task');
+    CheckBox.classList.add('completed__check-task');
+    Input.classList.remove('todo__input-task');
+    Input.classList.add('completed__input-task');
 
 
     let task = localStorage.getItem(CheckBox.parentElement.id);
@@ -100,11 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
     CheckBox.checked = false;
     Input.disabled = false;
     ContainerCompleted.removeChild(CheckBox.parentElement);
-    ContainerTodo.appendChild(CheckBox.parentElement);
-    CheckBox.classList.remove('main__check-completed');
-    CheckBox.classList.add('main__check-task');
-    Input.classList.remove('main__task-completed');
-    Input.classList.add('main__task');
+    ContainerTodoTasks.appendChild(CheckBox.parentElement);
+    CheckBox.classList.remove('completed__check-task');
+    CheckBox.classList.add('todo__check-task');
+    Input.classList.remove('completed__input-task');
+    Input.classList.add('todo__input-task');
 
     let task = localStorage.getItem(CheckBox.parentElement.id);
     localStorage.setItem(CheckBox.parentElement.id, task.split('-')[0] + '-ToDo')
@@ -112,16 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const createNewTask = (value, id) => {
     let taskContainer = document.createElement('div');
-    taskContainer.classList.add('main__wrap-task');
+    taskContainer.classList.add('wraper-task');
 
     let inputTask = document.createElement('input');
     inputTask.type = 'text';
-    inputTask.classList.add('main__task');
+    inputTask.classList.add('todo__input-task');
     inputTask.value = value;
 
     let inputCheckbox = document.createElement('input');
     inputCheckbox.type = 'checkbox';
-    inputCheckbox.classList.add('main__check-task', 'tasks');
+    inputCheckbox.classList.add('todo__check-task', 'inside-options');
     inputCheckbox.checked = false;
 
     let spanOption = document.createElement('span');
@@ -129,20 +129,20 @@ document.addEventListener('DOMContentLoaded', () => {
     spanOption.innerText = 'more_vert';
 
     let buttonOptions = document.createElement('button');
-    buttonOptions.classList.add('main__options');
+    buttonOptions.classList.add('details__button');
 
     let divOptions =  document.createElement('div');
-    divOptions.classList.add('options__dropdown'); 
+    divOptions.classList.add('details__container'); 
     
     let buttonDropdownOptions = document.createElement('button');
-    buttonDropdownOptions.classList.add('dropdown__delete');
+    buttonDropdownOptions.classList.add('details__option');
     buttonDropdownOptions.innerText = 'Delete';
 
     let divDropdownOptions =  document.createElement('div');
-    divDropdownOptions.classList.add('main__dropdown-options');
+    divDropdownOptions.classList.add('details__dropdown');
 
     let Options =  document.createElement('div');
-    Options.classList.add('options');
+    Options.classList.add('details');
     
     inputTask.addEventListener('focusout', () => {
       modifyTask(inputTask, taskContainer);
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     taskContainer.appendChild(inputTask);
     taskContainer.appendChild(inputCheckbox);
     taskContainer.appendChild(Options);
-    ContainerTodo.appendChild(taskContainer);
+    ContainerTodoTasks.appendChild(taskContainer);
 
     TitlesHidden();
   }
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Guardar referencias de nodos a mover antes de recorrer
-    let ids = Array.from(ContainerTodo.childNodes).filter(task => {
+    let ids = Array.from(ContainerTodoTasks.childNodes).filter(task => {
       return task.nodeType === 1 && localStorage.getItem(task.id)?.split('-')[1] === 'Completed';
     });
 
@@ -204,22 +204,22 @@ document.addEventListener('DOMContentLoaded', () => {
     TitlesHidden();
   }
 
-  ClearStorage.addEventListener('click', () => { 
+  ButtonClearStorage.addEventListener('click', () => { 
     deleteAllTasks();
   });
 
   ButtonAddTask.addEventListener('click', () => {
-    if(TodoTask.value) {
-      document.querySelector('.main__label').style.display = 'none'
-      createNewTask(TodoTask.value, null);  
-      localStorage.setItem(numberTask++, TodoTask.value + '-ToDo');
-      TodoTask.value = '';
+    if(InputAddTask.value) {
+      document.querySelector('.create__warning').style.display = 'none'
+      createNewTask(InputAddTask.value, null);  
+      localStorage.setItem(numberTask++, InputAddTask.value + '-ToDo');
+      InputAddTask.value = '';
     } else {
-      document.querySelector('.main__label').style.display = 'inline-block'
+      document.querySelector('.create__warning').style.display = 'inline-block'
     }
   });
 
-  TodoTask.addEventListener('keypress', (event) => {
+  InputAddTask.addEventListener('keypress', (event) => {
     if(event.key === 'Enter') {
       ButtonAddTask.click();
     }

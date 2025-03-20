@@ -11,31 +11,31 @@
 <body>
   <main class="main">
     <div class="main__container">
-      <div class="main__nav">
-        <button class="main__delete-all" id="ClearStorage">
+      <header class="header">
+        <button class="header__delete" id="ButtonClearStorage">
           <span class="material-icons">delete_forever</span>Clear All
         </button>
-      </div>
+      </header>
 
-      <section class="main__create">
-        <h2 class="main__subtitle">What Do You Wanna Do?</h2>
-        <div class="main__wrap-task">
-          <input type="text" class="main__input" id="TodoTask" name="TodoTask" placeholder="Make the bed...">
-          <button class="main__add-task tasks" id="ButtonAddTask">
+      <section class="create">
+        <h2 class="subtitle">What Do You Wanna Do?</h2>
+        <div class="wraper-task">
+          <input type="text" class="create__input-task" id="InputAddTask" name="InputAddTask" placeholder="Make the bed...">
+          <button class="create__button-add inside-options" id="ButtonAddTask">
             <span class="material-icons">add</span>
           </button>
-          <label for="TodoTask" class="main__label">You need to write a task!!!</label>
+          <label for="InputAddTask" class="create__warning">You need to write a task!!!</label>
         </div>
       </section>
 
-      <section class="main__todo">
-        <h2 class="main__subtitle" id="TitleTodo">To Do</h2>
-        <div class="main__tasks" id="ContainerTodo"></div>
+      <section class="todo">
+        <h2 class="subtitle" id="TitleTodoTasks">To Do</h2>
+        <div class="todo__container" id="ContainerTodoTasks"></div>
       </section>
 
-      <section class="main__completed">
-        <h2 class="main__subtitle" id="TitleCompleted">Completed</h2>
-        <div class="main__tasks-completed" id="ContainerCompleted"></div>
+      <section class="completed">
+        <h2 class="subtitle" id="TitleCompletedTasks">Completed</h2>
+        <div class="completed__container" id="ContainerCompleted"></div>
       </section>
     </div>
   </main>
