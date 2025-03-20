@@ -67,8 +67,8 @@ button {
   border: 1px solid rgba(0, 0, 0, 0.192);
 }
 
-.main__create, .main__todo {
-  margin: 50px 0;
+.main__create, .main__todo, .main__completed {
+  margin: 50px 0 0 0;
 }
 
 .main__wrap-task {
@@ -183,4 +183,14 @@ button {
 
 .options:hover .dropdown__delete {
   display: flex;
+}
+
+.main__label {
+  display: none;
+  font-weight: 400;
+  color: crimson;
+  font-size: .8rem;
+  text-align: center;
+  margin: 10px 0 0 2px;
+  /* display: inline-block; */
 }

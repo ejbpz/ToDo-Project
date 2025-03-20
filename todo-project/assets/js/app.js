@@ -35,15 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const TitlesHidden = () => {
     if(ContainerTodo.childElementCount == 0 && ContainerCompleted.childElementCount == 0){
-      TitleTodo.hidden = true;
+      TitleTodo.style.display = 'none';
     } else {
-      TitleTodo.hidden = false;
+      TitleTodo.style.display = 'block';
     }
     
     if(ContainerCompleted.childElementCount == 0){
-      TitleCompleted.hidden = true;
+      TitleCompleted.style.display = 'none';
     } else {
-      TitleCompleted.hidden = false;
+      TitleCompleted.style.display = 'block';
     }
   }
 
@@ -210,16 +210,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ButtonAddTask.addEventListener('click', () => {
     if(TodoTask.value) {
+      document.querySelector('.main__label').style.display = 'none'
       createNewTask(TodoTask.value, null);  
       localStorage.setItem(numberTask++, TodoTask.value + '-ToDo');
       TodoTask.value = '';
+    } else {
+      document.querySelector('.main__label').style.display = 'inline-block'
     }
   });
 
   TodoTask.addEventListener('keypress', (event) => {
     if(event.key === 'Enter') {
       ButtonAddTask.click();
-      TodoTask.blur();
     }
   });
 
