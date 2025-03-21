@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* Tag classes and scrollbar pseudo-element */
+/* Custom properties */
+:root {
+  --border-radius: 8px;
+  --color-warning: crimson;
+  --background-color: #f2f2f2;
+  --background-elements: #fff;
+  --font-titles: 'Raleway', serif;
+  --font-inputs: 'Poppins', serif;
+  --background-elements-hover: #d1d1d1;
+  --border: 1px solid rgba(0, 0, 0, 0.192);
+  --box-shadow: 0 0 32px -16px rgba(0, 0, 0, 0.129);
+  --input-task-completed-color: rgba(0, 0, 0, 0.616);
+}
+
+/* Tags and scrollbar pseudo-element */
 ::-webkit-scrollbar {
   width: 0px;
 }
@@ -12,7 +26,7 @@
 }
 
 body {
-  font-family: 'Raleway', serif;
+  font-family: var(--font-titles);
 }
 
 input {
@@ -20,8 +34,9 @@ input {
   font-size: 1rem;
   font-weight: 300;
   border-radius: 8px 8px 0 8px;
-  font-family: 'Poppins', serif;
+  font-family: var(--font-inputs);
   border: 1px solid rgba(0, 0, 0, 0.192);
+  background-color: var(--background-elements);
 }
 
 input[type='text'] {
@@ -31,7 +46,9 @@ input[type='text'] {
 
 button {
   cursor: pointer;
+  font-family: var(--font-inputs);
   -webkit-tap-highlight-color: transparent;
+  background-color: var(--background-elements);
 }
 
 /* Shared classes */
@@ -72,15 +89,15 @@ button {
   display: flex;
   position: absolute;
   align-items: center;
-  background: transparent;
   justify-content: center;
+  background: var(--background-elements);
 }
 
 /* Main section */
 .main {
   width: 100vw;
   min-height: 100vh;
-  background-color: #f2f2f2;
+  background-color: var(--background-color);
 }
 
 .main__container {
@@ -90,7 +107,7 @@ button {
   margin: 0 auto;
   overflow: auto;
   max-width: 600px;
-  box-shadow: 0 0 32px -16px rgba(0, 0, 0, 0.129);
+  box-shadow: var(--box-shadow);
 }
 
 /* Header section */
@@ -98,43 +115,39 @@ button {
   gap: 5px;
   display: flex;
   padding: 5px 10px;
-  border-radius: 8px;
   align-items: center;
-  background-color: #fff;
-  font-family: 'Poppins', serif;
+  border: var(--border);
   justify-content: space-around;
-  border: 1px solid rgba(0, 0, 0, 0.192);
+  border-radius: var(--border-radius);
 }
 
 /* Create section */
 .create__input-task {
   padding-left: 10px;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
 }
 
 .create__button-add {
   right: 0;
   border: none;
-  border-radius: 8px;
-  background: white;
+  border: var(--border);
   padding: 0px 8px 0px 8px;
-  border: 1px solid rgba(0, 0, 0, 0.192);
+  border-radius: var(--border-radius);
 }
 
 .create__warning {
   display: none;
   font-weight: 400;
-  color: crimson;
   font-size: .8rem;
   text-align: center;
   margin: 10px 0 0 2px;
+  color: var(--color-warning);
 }
 
 /* Completed section */
 .completed__input-task {
-  background-color: #fff;
-  color: rgba(0, 0, 0, 0.616);
   text-decoration: line-through;
+  color: var(--input-task-completed-color);
 }
 
 /* Details section */
@@ -174,18 +187,17 @@ button {
   z-index: 2;
   overflow: auto;
   position: absolute;
-  background-color: white;
   border-radius: 0 0 8px 8px;
+  background-color: var(--background-elements);
 }
 
 .details__option {
   padding: 5px;
   display: none;
-  font-family: 'Poppins', serif;
   align-items: center;
+  border: var(--border);
   background: transparent;
   border-radius: 0 0 8px 8px;
-  border: 1px solid rgba(0, 0, 0, 0.192);
   border-top: none;
 }
 
@@ -198,5 +210,5 @@ button {
 .create__button-add:active, 
 .details__option:active, 
 .details__dropdown:hover {
-  background: #0000000c;
+  background: var(--background-elements-hover);
 }
