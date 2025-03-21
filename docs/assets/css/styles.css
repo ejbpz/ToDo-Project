@@ -144,6 +144,12 @@ button {
   color: var(--color-warning);
 }
 
+.create__input-task::placeholder {
+  font-size: .9rem;
+  font-weight: 300;
+  color: var(--input-task-completed-color);
+}
+
 /* Completed section */
 .completed__input-task {
   text-decoration: line-through;
