@@ -49,7 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
     titlesHidden();
   }
 
-  const modifyTask = (taskInput, taskContainer) => localStorage.setItem(taskContainer.id, taskInput.value + '-ToDo')
+  const modifyTask = (taskInput, taskContainer, taskWarning) => {
+    if(taskInput.value) {
+      taskWarning.style.display = 'none';
+      taskContainer.style.marginBottom = '0';
+      localStorage.setItem(taskContainer.id, taskInput.value + '-ToDo');
+    } else {
+      taskWarning.style.display = 'inline-block';
+      taskContainer.style.marginBottom = '30px';
+    }
+  }
 
   const newTask = (value, id) => {
     let taskContainer = document.createElement('div');
@@ -59,6 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
     taskInput.type = 'text';
     taskInput.classList.add('tasks-input');
     taskInput.value = value;
+    taskInput.id = 'TaskModify';
+    taskInput.name = 'TaskModify';
 
     let taskCheckBox = document.createElement('input');
     taskCheckBox.type = 'checkbox';
@@ -84,11 +95,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let detailsOption = document.createElement('button');
     detailsOption.classList.add('details__option');
     detailsOption.innerText = 'Delete';
+
+    let taskWarning = document.createElement('label');
+    taskWarning.classList.add('warning-text');
+    taskWarning.for = 'TaskModify';
+    taskWarning.innerText = 'It cannot be empty!';
     
-    taskInput.addEventListener('focusout', () => modifyTask(taskInput, taskContainer));
+    taskInput.addEventListener('focusout', () => modifyTask(taskInput, taskContainer, taskWarning));
     taskInput.addEventListener('keypress', (event) => {
       if(event.key === 'Enter') {
-        modifyTask(taskInput, taskContainer);
+        modifyTask(taskInput, taskContainer, taskWarning);
         taskInput.blur();
       }
     });
@@ -105,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     taskContainer.appendChild(taskInput);
     taskContainer.appendChild(taskCheckBox);
     taskContainer.appendChild(detailsContainer);
+    taskContainer.appendChild(taskWarning);
     ContainerTodoTasks.appendChild(taskContainer);
 
     titlesHidden();
@@ -114,12 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
   ButtonAddTask.addEventListener('click', () => {
     if(InputAddTask.value) {
-      document.querySelector('.create__warning').style.display = 'none'
+      document.querySelector('#WarningEmptyTask').style.display = 'none'
       newTask(InputAddTask.value, null);  
       localStorage.setItem(taskNumber++, InputAddTask.value + '-ToDo');
       InputAddTask.value = '';
     } else {
-      document.querySelector('.create__warning').style.display = 'inline-block'
+      document.querySelector('#WarningEmptyTask').style.display = 'inline-block'
     }
   });
   
