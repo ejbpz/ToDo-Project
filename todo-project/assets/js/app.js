@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const modifyTask = (taskInput, taskContainer) => localStorage.setItem(taskContainer.id, taskInput.value + '-ToDo')
 
-
   const newTask = (value, id) => {
     let taskContainer = document.createElement('div');
     taskContainer.classList.add('wraper-task');

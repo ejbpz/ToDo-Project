@@ -33,9 +33,9 @@ input {
   outline: none;
   font-size: 1rem;
   font-weight: 300;
-  border-radius: 8px 8px 0 8px;
+  border: var(--border);
   font-family: var(--font-inputs);
-  border: 1px solid rgba(0, 0, 0, 0.192);
+  border-radius: var(--border-radius);
   background-color: var(--background-elements);
 }
 
@@ -203,6 +203,10 @@ button {
 
 .details:hover .details__option {
   display: flex;
+}
+
+.tasks-input:has(~ .details:hover) {
+  border-radius: 8px 8px 0 8px;
 }
 
 /* Shared pseudo-classes */
