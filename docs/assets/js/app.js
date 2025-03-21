@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     taskCheckBox.addEventListener('click', () => changeTask(taskCheckBox, taskInput, true));
-    detailsOption.addEventListener('click', () => deleteTask(ContainerTodoTasks, taskContainer));
+    detailsOption.addEventListener('click', () => deleteTask(taskContainer.parentElement, taskContainer));
     
     id ? taskContainer.id = id : taskContainer.id = taskNumber;
     
