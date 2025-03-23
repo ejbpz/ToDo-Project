@@ -5,10 +5,10 @@
   --border-radius: 8px;
   --color-warning: crimson;
   --background-color: #f2f2f2;
-  --background-elements: #fff;
   --font-titles: 'Raleway', serif;
   --font-inputs: 'Poppins', serif;
-  --background-elements-hover: #d1d1d1;
+  --background-elements: #ffffff;
+  --background-elements-hover: #ececec;
   --border: 1px solid rgba(0, 0, 0, 0.192);
   --box-shadow: 0 0 32px -16px rgba(0, 0, 0, 0.129);
   --input-task-completed-color: rgba(0, 0, 0, 0.616);
@@ -217,7 +217,9 @@ button {
 
 /* Shared pseudo-classes */
 .header__delete:active, 
+.header__delete:hover, 
 .create__button-add:active, 
+.create__button-add:hover, 
 .details__option:active, 
 .details__dropdown:hover {
   background: var(--background-elements-hover);
