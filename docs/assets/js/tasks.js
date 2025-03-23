@@ -1,6 +1,6 @@
 import { getTaskLS, modifyTaskLS, deleteAllTasksLS, deleteTaskLS } from './storage.js';
 
-export const changeTask = (taskCheckBox, taskInput, newTask = true) => {
+export const changeTask = (taskCheckBox, taskInput, ContainerTodoTasks, ContainerCompletedTasks, newTask = true) => {
   const parent = taskCheckBox.parentElement;
   taskInput.disabled = taskCheckBox.checked;
 
@@ -38,8 +38,6 @@ export const modifyTask = (value, taskContainer, taskWarning) => {
     taskWarning.style.display = 'none';
     taskContainer.style.marginBottom = '0';
     modifyTaskLS(taskContainer.id, value + '-ToDo');
-    console.log(taskContainer.id);
-    
   } else {
     taskWarning.style.display = 'inline-block';
     taskContainer.style.marginBottom = '30px';

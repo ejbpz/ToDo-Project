@@ -4,6 +4,8 @@ export const titlesHidden = (ContainerTodoTasks, ContainerCompletedTasks, TitleT
 }
 
 export const newTask = (value, id, modifyTask, changeTask, deleteTask, ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks) => {
+  const updateTitles = () => titlesHidden(ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks);
+
   const taskContainer = document.createElement('div');
   taskContainer.classList.add('wraper-task');
 
@@ -48,25 +50,25 @@ export const newTask = (value, id, modifyTask, changeTask, deleteTask, Container
 
   taskInput.addEventListener('focusout', () => {
     modifyTask(taskInput.value, taskContainer, taskWarning)
-    titlesHidden(ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks);
+    updateTitles()
   });
 
   taskInput.addEventListener('keypress', (event) => {
     if(event.key === 'Enter') {
       modifyTask(taskInput.value, taskContainer, taskWarning);
       taskInput.blur();
-      titlesHidden(ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks);
+      updateTitles()
         }
   });
 
   taskCheckBox.addEventListener('click', () => {
-    changeTask(taskCheckBox, taskInput, true)
-    titlesHidden(ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks);
+    changeTask(taskCheckBox, taskInput, ContainerTodoTasks, ContainerCompletedTasks, true)
+    updateTitles()
   });
 
   detailsOption.addEventListener('click', () => {
     deleteTask(taskContainer.parentElement, taskContainer)
-    titlesHidden(ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks);
+    updateTitles()
   });
 
 
@@ -80,7 +82,7 @@ export const newTask = (value, id, modifyTask, changeTask, deleteTask, Container
   taskContainer.appendChild(detailsContainer);
   taskContainer.appendChild(taskWarning);
 
-  titlesHidden(ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks);
+  updateTitles()
 
   return taskContainer;
 }

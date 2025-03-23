@@ -1,18 +1,6 @@
-const data = Array.from({length: localStorage.length}, (element, i) => {
-  const key = localStorage.key(i);
-  return {key: key, value: localStorage.getItem(key)}
-});
+const data = Object.entries(localStorage).map(([key, value]) => ({key, value}));
 
-export const getHigherIdTaskLS = () => {
-  let maxNumber = 0;
-
-  for(let i = 0; i < localStorage.length; i++) {
-    let id = parseInt(localStorage.key(i));
-    if(!isNaN(id) && id > maxNumber) maxNumber = id;
-  }
-
-  return maxNumber;
-}
+export const getHigherIdTaskLS = () => Object.keys(localStorage).map(Number).filter(key => !isNaN(key)).reduce((maxKey, key) => Math.max(maxKey, key), 0);
 
 export const deleteDefaultDataLS = () => {
   localStorage.removeItem('theme');
