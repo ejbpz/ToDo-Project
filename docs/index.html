@@ -8,13 +8,24 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
-<body>
+<body class="darkmode">
   <main class="main">
     <div class="main__container">
       <header class="header">
         <button class="header__delete" id="ButtonClearStorage">
           <span class="material-icons">delete_forever</span>Clear All
         </button>
+        <div class="theme">
+          <button class="theme__button">
+            <span class="material-icons icon">brightness_4</span>
+          </button>
+          <div class="theme__options">
+            <ul class="theme__list">
+              <li class="theme__item">Dark</li>
+              <li class="theme__item">Light</li>
+            </ul>
+          </div>
+        </div>
       </header>
 
       <section class="create tasks">

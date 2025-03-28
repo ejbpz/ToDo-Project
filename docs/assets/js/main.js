@@ -1,5 +1,5 @@
 import { deleteAllTasksLS, getHigherIdTaskLS, getTodoTasksLS, getCompletedTasksLS, newTaskLS, deleteDefaultDataLS } from './storage.js';
-import { titlesHidden, newTask } from './dom.js';
+import { titlesHidden, newTask, themeChange } from './dom.js';
 import { changeTask, deleteAllTasks, deleteTask, modifyTask } from './tasks.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const ContainerCompletedTasks = document.querySelector('#ContainerCompletedTasks');
   const TitleTodoTasks = document.querySelector('#TitleTodoTasks');
   const TitleCompletedTasks = document.querySelector('#TitleCompletedTasks');
+  const ThemeOptions = document.querySelectorAll('.theme__item');
+  const Body = document.querySelector('body');
 
   const todoTasks = getTodoTasksLS();
   const completedTasks = getCompletedTasksLS();  
@@ -53,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTitles();
   });
 
+  themeChange(Body, ThemeOptions);
   extractData();
   updateTitles();
 });

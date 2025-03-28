@@ -1,3 +1,13 @@
+export const themeChange = (Body, ThemeOptions) => {
+  ThemeOptions[1].addEventListener('click', () => {
+    Body.classList.remove('darkmode');
+  });
+
+  ThemeOptions[0].addEventListener('click', () => {
+    Body.classList.add('darkmode');
+  });
+}
+
 export const titlesHidden = (ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks) => {
   ContainerTodoTasks.childElementCount == 0 && ContainerCompletedTasks.childElementCount == 0 ? TitleTodoTasks.style.display = 'none' : TitleTodoTasks.style.display = 'block';
   ContainerCompletedTasks.childElementCount == 0 ? TitleCompletedTasks.style.display = 'none' : TitleCompletedTasks.style.display = 'block';

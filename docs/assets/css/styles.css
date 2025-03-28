@@ -3,15 +3,23 @@
 /* Custom properties */
 :root {
   --border-radius: 8px;
+  --text-colors: #000000;
   --color-warning: crimson;
   --background-color: #f2f2f2;
   --font-titles: 'Raleway', serif;
   --font-inputs: 'Poppins', serif;
   --background-elements: #ffffff;
-  --background-elements-hover: #ececec;
+  --background-elements-hover: #FF6000;
   --border: 1px solid rgba(0, 0, 0, 0.192);
   --box-shadow: 0 0 32px -16px rgba(0, 0, 0, 0.129);
   --input-task-completed-color: rgba(0, 0, 0, 0.616);
+}
+
+.darkmode {
+  --text-colors: #d6d6d6;
+  --background-color: #454950;
+  --background-elements: #EEEEEE;
+  --background-elements-hover: rgb(106, 157, 199);
 }
 
 /* Tags and scrollbar pseudo-element */
@@ -60,6 +68,7 @@ button {
   font-weight: 500;
   font-size: 1.6rem;
   margin-bottom: 15px;
+  color: var(--text-colors);
 }
 
 .warning-text {
@@ -102,6 +111,14 @@ button {
   background: var(--background-elements);
 }
 
+.details__option:hover, .theme__item:hover {
+  color: rgb(238, 238, 238);
+}
+
+.icon {
+  color: var(--text-colors);
+}
+
 /* Main section */
 .main {
   width: 100vw;
@@ -120,14 +137,63 @@ button {
 }
 
 /* Header section */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .header__delete {
   gap: 5px;
+  height: 40px;
   display: flex;
   padding: 5px 10px;
   align-items: center;
   border: var(--border);
-  justify-content: space-around;
+  justify-content: center;
   border-radius: var(--border-radius);
+}
+
+.theme {
+  position: relative;
+}
+
+.theme__button {
+  border: none;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.theme__options {
+  right: 0;
+  top: 25px;
+  z-index: 1;
+  position: absolute;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  background: var(--background-elements);
+}
+
+.theme__list {
+  display: none;
+  cursor: pointer;
+  list-style: none;
+  flex-direction: column;
+}
+
+.theme__item {
+  padding: 8px 10px;
+}
+
+.theme:hover .theme__list {
+  display: flex;
+}
+
+.theme__item:hover {
+  border-radius: var(--border-radius);
+  background-color: var(--background-elements-hover);
 }
 
 /* Create section */
@@ -222,5 +288,6 @@ button {
 .create__button-add:hover, 
 .details__option:active, 
 .details__dropdown:hover {
+  color: rgb(238, 238, 238);
   background: var(--background-elements-hover);
 }
