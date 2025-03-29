@@ -1,10 +1,14 @@
+import { modifyTaskLS } from "./storage.js";
+
 export const themeChange = (Body, ThemeOptions) => {
   ThemeOptions[1].addEventListener('click', () => {
     Body.classList.remove('darkmode');
+    modifyTaskLS('theme', 'light');
   });
 
   ThemeOptions[0].addEventListener('click', () => {
     Body.classList.add('darkmode');
+    modifyTaskLS('theme', 'dark');
   });
 }
 

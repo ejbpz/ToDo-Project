@@ -1,4 +1,4 @@
-import { deleteAllTasksLS, getHigherIdTaskLS, getTodoTasksLS, getCompletedTasksLS, newTaskLS, deleteDefaultDataLS } from './storage.js';
+import { deleteAllTasksLS, getHigherIdTaskLS, getTodoTasksLS, getCompletedTasksLS, newTaskLS, deleteDefaultDataLS, getTaskLS } from './storage.js';
 import { titlesHidden, newTask, themeChange } from './dom.js';
 import { changeTask, deleteAllTasks, deleteTask, modifyTask } from './tasks.js';
 
@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const extractData = () => {
     deleteDefaultDataLS();
+
+    (getTaskLS('theme') === 'dark') ? Body.classList.add('darkmode') : Body.classList.remove('darkmode'); 
+
     todoTasks.forEach(task => {
       ContainerTodoTasks.appendChild(newTask(task.value.split('-')[0], task.key, modifyTask, changeTask, deleteTask, ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks));
     });
