@@ -58,7 +58,6 @@ export const newTask = (value, id, modifyTask, changeTask, deleteTask, Container
   const taskWarning = document.createElement('label');
   taskWarning.classList.add('warning-text');
   taskWarning.for = 'TaskModify';
-  taskWarning.innerText = 'It cannot be empty!';
   
   taskContainer.id = id;
 

@@ -34,11 +34,16 @@ export const deleteTask = (taskContainer, task) => {
 }
 
 export const modifyTask = (value, taskContainer, taskWarning) => {
-  if(value) {
+  if(value && !value.includes('-')) {
     taskWarning.style.display = 'none';
     taskContainer.style.marginBottom = '0';
     modifyTaskLS(taskContainer.id, value + '-ToDo');
+  } else if(value.includes('-')) {
+    taskWarning.innerHTML = "The task cannot have a '-'";
+    taskWarning.style.display = 'inline-block';
+    taskContainer.style.marginBottom = '30px';
   } else {
+    taskWarning.innerHTML = 'It cannot be empty!';
     taskWarning.style.display = 'inline-block';
     taskContainer.style.marginBottom = '30px';
   }

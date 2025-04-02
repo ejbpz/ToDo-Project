@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const TitleCompletedTasks = document.querySelector('#TitleCompletedTasks');
   const ThemeOptions = document.querySelectorAll('.theme__item');
   const Body = document.querySelector('body');
+  const WarningTask = document.querySelector('#WarningTask');
 
   const todoTasks = getTodoTasksLS();
   const completedTasks = getCompletedTasksLS();  
@@ -37,16 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
   ButtonAddTask.addEventListener('click', () => {
     let value = InputAddTask.value;
 
-    if(value) {
+    if(value && !value.includes('-')) {
       let id = getHigherIdTaskLS();
       id++;
       
-      document.querySelector('#WarningEmptyTask').style.display = 'none';
+      WarningTask.style.display = 'none';
       ContainerTodoTasks.appendChild(newTask(value, id, modifyTask, changeTask, deleteTask, ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks));
       newTaskLS(id, value + '-ToDo');
       InputAddTask.value = '';
+      updateTitles();
+    } else if(value.includes('-')) {
+      WarningTask.innerHTML = "The task cannot have a '-'";
+      WarningTask.style.display = 'inline-block';
     } else {
-      document.querySelector('#WarningEmptyTask').style.display = 'inline-block';
+      WarningTask.innerHTML = "You'll need to write a task!";
+      WarningTask.style.display = 'inline-block';
     }
   });
 
