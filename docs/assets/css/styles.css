@@ -251,11 +251,10 @@ button {
   width: 8%;
   height: 100%;
   position: absolute;
-
-  background: white;
-    border-radius: 0px 8px 8px 0;
-    border: var(--border);
-    border-left: none;
+  border: var(--border);
+  border-left: none;
+  border-radius: 0px 8px 8px 0;
+  background: var(--background-elements);
 }
 
 .details__container {
