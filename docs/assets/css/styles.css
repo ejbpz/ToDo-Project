@@ -275,6 +275,10 @@ button {
 }
 
 /* Completed section */
+.completed {
+  margin-bottom: 25px;
+}
+
 .completed__input-task {
   text-decoration: line-through;
   color: var(--input-task-completed-color);
@@ -336,7 +340,6 @@ button {
   border-radius: 0 0 8px 8px;
 }
 
-
 .details:hover {
   border-radius: 0 8px 0 0;
 }
@@ -351,6 +354,37 @@ button {
 
 .details__option:active, .details__option:hover {
   border-radius: var(--border-radius);
+}
+
+/* Footer section */
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  box-shadow: var(--box-shadow);
+  background-color: var(--background-color);
+}
+
+.footer__container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  max-width: 600px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__text {
+  font-size: .8rem;
+  color: var(--text-colors);
+}
+
+.footer__link {
+  text-decoration: none;
+  color: var(--background-elements-hover);
 }
 
 /* Shared pseudo-classes */

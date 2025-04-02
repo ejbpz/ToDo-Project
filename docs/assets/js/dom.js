@@ -84,7 +84,6 @@ export const newTask = (value, id, modifyTask, changeTask, deleteTask, Container
     updateTitles()
   });
 
-
   detailsButton.appendChild(detailsIcon);
   detailsDropdown.appendChild(detailsOption);
   detailsContent.appendChild(detailsButton);
@@ -94,8 +93,6 @@ export const newTask = (value, id, modifyTask, changeTask, deleteTask, Container
   taskContainer.appendChild(taskCheckBox);
   taskContainer.appendChild(detailsContainer);
   taskContainer.appendChild(taskWarning);
-
-  updateTitles()
 
   return taskContainer;
 }
