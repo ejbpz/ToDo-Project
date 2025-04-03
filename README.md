@@ -7,7 +7,7 @@ A simple ToDo app built with **HTML, CSS, and Vanilla JavaScript**, designed to 
 - Best practices with these technologies  
 
 ## Live Demo  
-You can try the app directly [here](your-live-link).  
+You can try the app directly [here](https://ejbpz.github.io/ToDo-Project/).  
 
 ## Features  
 ✔️ Add, edit, and delete tasks  
