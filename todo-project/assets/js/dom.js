@@ -1,5 +1,41 @@
 import { modifyTaskLS } from "./storage.js";
 
+const updateContent = (langData) => {
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    
+    if(key === 'task-placeholder') {
+      document.querySelector('#InputAddTask').placeholder = langData[key];
+    }
+
+    if(element.querySelector('a')) {
+      const link = element.querySelector('a').outerHTML;
+      element.innerHTML = `${langData[key]} ${link}`;
+    } else {
+      element.innerHTML = langData[key];
+    }
+  });
+}
+
+const fetchLanguage = async (lang) => {
+  const response = await fetch(`assets/languages/${lang}.json`);
+  return response.json();
+}
+
+export const languageChange = async (LangOptions) => {
+  LangOptions[1].addEventListener('click', async () => {
+    modifyTaskLS('language', 'en');
+    const langData = await fetchLanguage('en');
+    updateContent(langData);
+  });
+
+  LangOptions[0].addEventListener('click', async () => {
+    modifyTaskLS('language', 'es');
+    const langData = await fetchLanguage('es');
+    updateContent(langData);
+  });
+}
+
 export const themeChange = (Body, ThemeOptions) => {
   ThemeOptions[1].addEventListener('click', () => {
     Body.classList.remove('darkmode');
@@ -53,6 +89,7 @@ export const newTask = (value, id, modifyTask, changeTask, deleteTask, Container
 
   const detailsOption = document.createElement('button');
   detailsOption.classList.add('details__option');
+  detailsOption.dataset.i18n = 'task-delete';
   detailsOption.innerText = 'Delete';
 
   const taskWarning = document.createElement('label');

@@ -385,6 +385,7 @@ button {
 .footer__link {
   text-decoration: none;
   color: var(--background-elements-hover);
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Shared pseudo-classes */

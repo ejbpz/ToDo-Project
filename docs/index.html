@@ -20,15 +20,12 @@
           </button>
           <div class="language__options options__menu">
             <ul class="language__list options__list">
-              <li class="language__item options__item prevent-selected">Spanish</li>
-              <li class="language__item options__item prevent-selected">English</li>
+              <li class="language__item options__item prevent-selected" data-i18n="spanish-language">Spanish</li>
+              <li class="language__item options__item prevent-selected" data-i18n="english-language">English</li>
             </ul>
           </div>
         </div>
-        <button class="header__delete prevent-selected" id="ButtonClearStorage">
-          <span class="material-icons">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M20.5 6h-17m15.333 2.5l-.46 6.9c-.177 2.654-.265 3.981-1.13 4.79s-2.196.81-4.856.81h-.774c-2.66 0-3.991 0-4.856-.81c-.865-.809-.954-2.136-1.13-4.79l-.46-6.9M9.17 4a3.001 3.001 0 0 1 5.66 0"/></svg>
-          </span>Clear All
+        <button class="header__delete prevent-selected" id="ButtonClearStorage" data-i18n="clear-all">Clear All
         </button>
         <div class="theme options">
           <button class="theme__button options__button">
@@ -38,17 +35,17 @@
           </button>
           <div class="theme__options options__menu">
             <ul class="theme__list options__list">
-              <li class="theme__item options__item prevent-selected">Dark</li>
-              <li class="theme__item options__item prevent-selected">Light</li>
+              <li class="theme__item options__item prevent-selected" data-i18n="dark-theme">Dark</li>
+              <li class="theme__item options__item prevent-selected" data-i18n="light-theme">Light</li>
             </ul>
           </div>
         </div>
       </header>
 
       <section class="create tasks">
-        <h2 class="subtitle prevent-selected">What Do You Wanna Do?</h2>
+        <h2 class="subtitle prevent-selected" data-i18n="input-title">What Do You Wanna Do?</h2>
         <div class="wraper-task">
-          <input type="text" class="create__input-task" id="InputAddTask" name="InputAddTask" placeholder="Make the bed..." autofocus>
+          <input type="text" class="create__input-task" id="InputAddTask" name="InputAddTask" placeholder="Make the bed..." data-i18n="task-placeholder" autofocus>
           <button class="create__button-add inside-options" id="ButtonAddTask">
             <span class="material-icons prevent-selected">add</span>
           </button>
@@ -57,12 +54,12 @@
       </section>
 
       <section class="todo tasks">
-        <h2 class="subtitle prevent-selected" id="TitleTodoTasks">To Do</h2>
+        <h2 class="subtitle prevent-selected" id="TitleTodoTasks" data-i18n="todo-title">To Do</h2>
         <div class="tasks-container" id="ContainerTodoTasks"></div>
       </section>
 
       <section class="completed tasks">
-        <h2 class="subtitle prevent-selected" id="TitleCompletedTasks">Completed</h2>
+        <h2 class="subtitle prevent-selected" id="TitleCompletedTasks" data-i18n="completed-title">Completed</h2>
         <div class="tasks-container" id="ContainerCompletedTasks"></div>
       </section>
     </div>
@@ -70,7 +67,9 @@
 
   <footer class="footer">
     <div class="footer__container">
-      <p class="footer__text">Made by <a href="https://github.com/ejbpz" class="footer__link">ejbpz</a></p>
+      <p class="footer__text prevent-selected" data-i18n="made-by">Made by 
+        <a href="https://github.com/ejbpz" class="footer__link">ejbpz</a>
+      </p>
     </div>
   </footer>
   

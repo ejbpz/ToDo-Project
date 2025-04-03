@@ -1,5 +1,5 @@
-import { deleteAllTasksLS, getHigherIdTaskLS, getTodoTasksLS, getCompletedTasksLS, newTaskLS, deleteDefaultDataLS, getTaskLS } from './storage.js';
-import { titlesHidden, newTask, themeChange } from './dom.js';
+import { deleteAllTasksLS, getHigherIdTaskLS, getTodoTasksLS, getCompletedTasksLS, newTaskLS, getTaskLS } from './storage.js';
+import { titlesHidden, newTask, themeChange, languageChange } from './dom.js';
 import { changeTask, deleteAllTasks, deleteTask, modifyTask } from './tasks.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const TitleTodoTasks = document.querySelector('#TitleTodoTasks');
   const TitleCompletedTasks = document.querySelector('#TitleCompletedTasks');
   const ThemeOptions = document.querySelectorAll('.theme__item');
+  const LangOptions = document.querySelectorAll('.language__item');
   const Body = document.querySelector('body');
   const WarningTask = document.querySelector('#WarningTask');
 
@@ -19,9 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const updateTitles = () => titlesHidden(ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks);
 
   const extractData = () => {
-    deleteDefaultDataLS();
-
     (getTaskLS('theme') === 'dark') ? Body.classList.add('darkmode') : Body.classList.remove('darkmode'); 
+    (getTaskLS('language') === 'es') ? LangOptions[0].click() : LangOptions[1].click(); 
 
     todoTasks.forEach(task => {
       ContainerTodoTasks.appendChild(newTask(task.value.split('-')[0], task.key, modifyTask, changeTask, deleteTask, ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks));
@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ButtonAddTask.addEventListener('click', () => {
     let value = InputAddTask.value;
+    let lang = getTaskLS('language');
 
     if(value && !value.includes('-')) {
       let id = getHigherIdTaskLS();
@@ -48,10 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
       InputAddTask.value = '';
       updateTitles();
     } else if(value.includes('-')) {
-      WarningTask.innerHTML = "The task cannot have a '-'";
+      WarningTask.innerHTML = lang === 'es' ? "La tarea no puede tener '-'" : "The task cannot have a '-'";
       WarningTask.style.display = 'inline-block';
     } else {
-      WarningTask.innerHTML = "You'll need to write a task!";
+      WarningTask.innerHTML = lang === 'es' ? '¡Necesitas escribir una tarea!' : "You'll need to write a task!";
       WarningTask.style.display = 'inline-block';
     }
   });
@@ -65,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   themeChange(Body, ThemeOptions);
+  languageChange(LangOptions);
   extractData();
   updateTitles();
 });

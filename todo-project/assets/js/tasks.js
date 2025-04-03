@@ -34,16 +34,18 @@ export const deleteTask = (taskContainer, task) => {
 }
 
 export const modifyTask = (value, taskContainer, taskWarning) => {
+  let lang = getTaskLS('language');
+
   if(value && !value.includes('-')) {
     taskWarning.style.display = 'none';
     taskContainer.style.marginBottom = '0';
     modifyTaskLS(taskContainer.id, value + '-ToDo');
   } else if(value.includes('-')) {
-    taskWarning.innerHTML = "The task cannot have a '-'";
+    taskWarning.innerHTML = lang === 'es' ? "La tarea no puede tener '-'" : "The task cannot have a '-'";
     taskWarning.style.display = 'inline-block';
     taskContainer.style.marginBottom = '30px';
   } else {
-    taskWarning.innerHTML = 'It cannot be empty!';
+    taskWarning.innerHTML = lang === 'es' ? '¡No puede ser vacio!' : 'It cannot be empty!';
     taskWarning.style.display = 'inline-block';
     taskContainer.style.marginBottom = '30px';
   }
