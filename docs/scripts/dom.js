@@ -1,9 +1,10 @@
-import { modifyTaskLS } from "./storage.js";
+import { getTaskLS, modifyTaskLS } from "./storage.js";
 
-const updateContent = (langData) => {
+const updateContent = (langData, lang) => {
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
-    
+    document.querySelector('html').lang = lang;
+
     if(key === 'task-placeholder') {
       document.querySelector('#InputAddTask').placeholder = langData[key];
     }
@@ -26,13 +27,13 @@ export const languageChange = async (LangOptions) => {
   LangOptions[1].addEventListener('click', async () => {
     modifyTaskLS('language', 'en');
     const langData = await fetchLanguage('en');
-    updateContent(langData);
+    updateContent(langData, 'en');
   });
 
   LangOptions[0].addEventListener('click', async () => {
     modifyTaskLS('language', 'es');
     const langData = await fetchLanguage('es');
-    updateContent(langData);
+    updateContent(langData, 'es');
   });
 }
 
@@ -55,6 +56,7 @@ export const titlesHidden = (ContainerTodoTasks, ContainerCompletedTasks, TitleT
 
 export const newTask = (value, id, modifyTask, changeTask, deleteTask, ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks) => {
   const updateTitles = () => titlesHidden(ContainerTodoTasks, ContainerCompletedTasks, TitleTodoTasks, TitleCompletedTasks);
+  const lang = getTaskLS('language');
 
   const taskContainer = document.createElement('div');
   taskContainer.classList.add('wraper-task');
@@ -90,7 +92,7 @@ export const newTask = (value, id, modifyTask, changeTask, deleteTask, Container
   const detailsOption = document.createElement('button');
   detailsOption.classList.add('details__option');
   detailsOption.dataset.i18n = 'task-delete';
-  detailsOption.innerText = 'Delete';
+  detailsOption.innerText = lang === 'es' ? 'Eliminar' : 'Delete';
 
   const taskWarning = document.createElement('label');
   taskWarning.classList.add('warning-text');

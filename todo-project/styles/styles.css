@@ -120,6 +120,7 @@ button {
   height: 45px;
   margin: 0 auto;
   position: relative;
+  cursor: grab;
 }
 
 .tasks-container {
@@ -383,6 +384,7 @@ button {
 }
 
 .footer__link {
+  font-weight: 600;
   text-decoration: none;
   color: var(--background-elements-hover);
   -webkit-tap-highlight-color: transparent;
