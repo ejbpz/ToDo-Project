@@ -21,7 +21,7 @@ You can try the app directly [here](https://ejbpz.github.io/ToDo-Project/).
 4. Use the delete button to remove a task  
 
 ## Project Structure
-/project-folder                                           
+/todo-project                                           
 │── index.html                                               
 │── styles/                                                                 
 │   ├── styles.css                                                      
