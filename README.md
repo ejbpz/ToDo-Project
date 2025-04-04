@@ -26,13 +26,17 @@ You can try the app directly [here](https://ejbpz.github.io/ToDo-Project/).
 │── styles/                                                                 
 │   ├── styles.css                                                      
 │── scripts/                                                      
-│   ├── app.js                                                        
+│   ├── main.js                                                        
+│   ├── dom.js                                                        
+│   ├── tasks.js                                                        
+│   ├── storage.js                                                        
 │── assets/                                                                
 │   ├── images/                                                                 
 │   │   ├── favicon.ico                                                                                     
 │   ├── languages/                                                                    
 │   │   ├── en.json                                                                    
-│   │   ├── es.json                                                                          
+│   │   ├── es.json     
+│── README.md                                                                                                                    
  
 
 ## Technologies Used  
