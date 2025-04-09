@@ -1,7 +1,7 @@
 import { validateInput } from '../../validators/validateInput';
 import './render-add-input.css';
 
-export const renderAddInput = (element, callback) => {
+export const renderAddInput = (element, callback, titles) => {
   const container = document.createElement('div');
   container.classList.add('wraper-task');
 
@@ -31,7 +31,9 @@ export const renderAddInput = (element, callback) => {
     let value = input.value;
     if(validateInput(value, label)) {
       input.value = '';
-      return callback(value);
+      let task = callback(value);
+      titles();
+      return task;
     }
   });
 

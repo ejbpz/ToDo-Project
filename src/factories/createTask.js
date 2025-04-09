@@ -72,5 +72,6 @@ export const newTask = (id, value, divTodo, divComp, callback) => {
   container.append(input, checkbox, details, warning);
   
   createTask(container.id, value);
+  callback();
   return container;
 }

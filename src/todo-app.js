@@ -14,7 +14,7 @@ export const TodoApp = (body, create, todo, completed, clearAll, themeOpt, langO
     titlesHidden(todo, completed, titles);
   });
 
-  renderAddInput(create, (value) => todo.append(newTask(null, value, todo, completed, () => titlesHidden(todo, completed, titles))));
+  renderAddInput(create, (value) => todo.append(newTask(null, value, todo, completed, () => titlesHidden(todo, completed, titles))), () => titlesHidden(todo, completed, titles));
 
   renderTodoContainer(todo, completed, () => titlesHidden(todo, completed, titles));
   renderCompContainer(todo, completed, () => titlesHidden(todo, completed, titles));
