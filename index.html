@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" translate="no">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo - Project</title>
+    <link rel="shortcut icon" href="/assets/favicon-CbdO-guO.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="module" crossorigin src="/assets/index-C5EOloHm.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DB3_ULNF.css">
+  </head>
+  <body>
+    <main class="main">
+      <div class="main__container">
+        <header class="header">
+          <div class="language options">
+            <button class="language__button options__button">
+              <span class="material-icons icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1"><path d="M2 12c0 5.523 4.477 10 10 10s10-4.477 10-10S17.523 2 12 2S2 6.477 2 12"/><path d="M13 2.05S16 6 16 12s-3 9.95-3 9.95m-2 0S8 18 8 12s3-9.95 3-9.95M2.63 15.5h18.74m-18.74-7h18.74"/></g></svg>
+              </span>
+            </button>
+            <div class="language__options options__menu">
+              <ul class="language__list options__list">
+                <li class="language__item options__item prevent-selected" data-i18n="spanish-language">Spanish</li>
+                <li class="language__item options__item prevent-selected" data-i18n="english-language">English</li>
+              </ul>
+            </div>
+          </div>
+          <button class="header__delete prevent-selected" id="ButtonClearStorage" data-i18n="clear-all">Clear All
+          </button>
+          <div class="theme options">
+            <button class="theme__button options__button">
+              <span class="material-icons icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M13.58 13.79c.27.68.42 1.43.42 2.21c0 1.77-.77 3.37-2 4.46A5.93 5.93 0 0 1 8 22c-3.31 0-6-2.69-6-6c0-2.76 1.88-5.1 4.42-5.79"/><path d="M17.58 10.21C20.12 10.9 22 13.24 22 16c0 3.31-2.69 6-6 6a5.93 5.93 0 0 1-4-1.54"/><path d="M6 8a6 6 0 1 0 12 0A6 6 0 1 0 6 8"/></g></svg>
+              </span>
+            </button>
+            <div class="theme__options options__menu">
+              <ul class="theme__list options__list">
+                <li class="theme__item options__item prevent-selected" data-i18n="dark-theme">Dark</li>
+                <li class="theme__item options__item prevent-selected" data-i18n="light-theme">Light</li>
+              </ul>
+            </div>
+          </div>
+        </header>
+  
+        <section class="create tasks">
+          <h2 class="subtitle prevent-selected" data-i18n="input-title">What Do You Wanna Do?</h2>
+        </section>
+  
+        <!-- TODO: remove id titles -->
+        <section class="todo tasks">
+          <h2 class="subtitle prevent-selected" id="TitleTodoTasks" data-i18n="todo-title">To Do</h2>
+          <div class="tasks-container" id="ContainerTodoTasks"></div>
+        </section>
+  
+        <!-- TODO: remove id titles -->
+        <section class="completed tasks">
+          <h2 class="subtitle prevent-selected" id="TitleCompletedTasks" data-i18n="completed-title">Completed</h2>
+          <div class="tasks-container" id="ContainerCompletedTasks"></div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
