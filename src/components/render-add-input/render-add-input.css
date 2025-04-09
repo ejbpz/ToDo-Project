@@ -1,0 +1,18 @@
+.create__input-task {
+  padding-left: 10px;
+  border-radius: var(--border-radius);
+}
+
+.create__button-add {
+  right: 0;
+  border: none;
+  border: var(--border);
+  padding: 0px 8px 0px 8px;
+  border-radius: var(--border-radius);
+}
+
+.create__input-task::placeholder {
+  font-size: .9rem;
+  font-weight: 300;
+  color: var(--input-task-completed-color);
+}
