@@ -19,7 +19,7 @@ const changeContentLang = (langData, lang) => {
 }
 
 const fetchLanguage = async(lang) => {
-  const data = await fetch(`/src/i18n/${lang}.json`);
+  const data = await fetch(`public/i18n/${lang}.json`);
   return await data.json();
 }
 
