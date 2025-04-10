@@ -1,4 +1,4 @@
-import tasksStorage from "@/store/tasks-storage";
+import cookiesStorage from "@/store/cookies-storage";
 
 const changeContentLang = (langData, lang) => {
   document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -26,13 +26,13 @@ const fetchLanguage = async(lang) => {
 export const changeLanguage = (langOptions) => {
   langOptions[0].addEventListener('click', async () => {
     const langData = await fetchLanguage('es');
-    tasksStorage.setLangLS('es');
+    cookiesStorage.setLanguage('es');
     changeContentLang(langData, 'es');
   });
 
   langOptions[1].addEventListener('click', async () => {
     const langData = await fetchLanguage('en');
-    tasksStorage.setLangLS('en');
+    cookiesStorage.setLanguage('en');
     changeContentLang(langData, 'en');
   });
 

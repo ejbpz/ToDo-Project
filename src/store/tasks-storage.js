@@ -6,14 +6,7 @@ const getTodoTasksLS = () => Array.from(data).filter(task => task.value.split('-
 
 const getCompletedTasksLS = () => Array.from(data).filter(task => task.value.split('-')[1] === 'Completed');
 
-// TODO: language y theme pasarlo a cookies.
-const deleteAllTasksLS = () => {
-  const theme = getTaskLS('theme');
-  const lang = getTaskLS('language');
-  localStorage.clear();
-  if(theme) newTaskLS('theme', theme);
-  if(lang) newTaskLS('language', lang);
-}
+const deleteAllTasksLS = () => localStorage.clear();
 
 const deleteTaskLS = (id) => localStorage.removeItem(id);
 
@@ -23,14 +16,6 @@ const newTaskLS = (id, value) => localStorage.setItem(id, value);
 
 const getTaskLS = (id) => localStorage.getItem(id);
 
-const getThemeLS = () => localStorage.getItem('theme');
-
-const getLangLS = () => localStorage.getItem('language');
-
-const setThemeLS = (value) => localStorage.setItem('theme', value);
-
-const setLangLS = (value) => localStorage.setItem('language', value);
-
 export default {
   getHigherIdTaskLS,
   getTodoTasksLS,
@@ -39,9 +24,5 @@ export default {
   deleteTaskLS,
   modifyTaskLS,
   newTaskLS,
-  getTaskLS,
-  getThemeLS,
-  getLangLS,
-  setThemeLS,
-  setLangLS
+  getTaskLS
 }
