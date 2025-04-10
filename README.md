@@ -1,48 +1,51 @@
-
 # ToDo-Project
-A simple ToDo app built with **HTML, CSS, and Vanilla JavaScript**, designed to practice:  
+A simple and modular ToDo app built with **HTML, CSS, and Vanilla JavaScript**, powered by **Vite** and **pnpm**.  
+This project is focused on practicing:  
 - **DOM Manipulation**  
 - **LocalStorage** for data persistence  
-- **BEM Methodology** for structuring CSS  
-- Best practices with these technologies  
+- **BEM Methodology** for CSS architecture  
+- Clean project structure and modern dev tooling 
 
-## Live Demo  
-You can try the app directly [here](https://ejbpz.github.io/ToDo-Project/).  
+## 🚀 Live Demo  
+Try it here 👉 [ToDo App Live](https://ejbpz.github.io/ToDo-Project/)
 
-## Features  
+## ✨ Features  
 ✔️ Add, edit, and delete tasks  
-✔️ Save tasks in LocalStorage  
-✔️ Responsive design  
+✔️ Persistent storage using LocalStorage  
+✔️ Responsive and accessible UI  
+✔️ Modular codebase with reusable components  
+✔️ Built with Vite for fast development 
 
-## How to Use  
-1. Type a task in the input field  
-2. Click "+" or "Enter" to save it to the list  
-3. Click on checkbox task to mark it as completed  
-4. Use the delete button to remove a task  
+## 🛠️ Development
+### Instalation
+1. Clone repository
+```sh
+git clone https://github.com/ejbpz/ToDo-Project.git
+```
 
-## Project Structure
-/todo-project                                           
-│── index.html                                               
-│── styles/                                                                 
-│   ├── styles.css                                                      
-│── scripts/                                                      
-│   ├── main.js                                                        
-│   ├── dom.js                                                        
-│   ├── tasks.js                                                        
-│   ├── storage.js                                                        
-│── assets/                                                                
-│   ├── images/                                                                 
-│   │   ├── favicon.ico                                                                                     
-│   ├── languages/                                                                    
-│   │   ├── en.json                                                                    
-│   │   ├── es.json     
-│── README.md                                                                                                                    
- 
+2. Install npm packages
+```sh
+pnpm install
+```
 
-## Technologies Used  
-- **HTML** for structure  
-- **CSS** (BEM methodology) for styling  
-- **JavaScript** for functionality  
+3. Run the project
+```sh
+pnpm run dev
+```
 
-## License  
-This project is open-source. Feel free to use or modify it.
+## 🧪 How to Use the App
+1. Type a task into the input field
+2. Press Enter or click "+" to add the task
+3. Mark a task as complete by clicking its checkbox
+4. Use the delete button to remove it
+5. All tasks are saved automatically in your browser
+
+## 🧰 Technologies Used
+- HTML
+- CSS (BEM methodology)
+- JavaScript (Vanilla)
+- Vite (bundler)
+- pnpm (package manager)
+
+## 📜 License
+This project is open-source. Feel free to use, modify or share it!
