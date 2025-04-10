@@ -1,4 +1,4 @@
-import tasksStorage from '@/store/tasks-storage';
+import cookiesStorage from '../store/cookies-storage';
 
 const containerReduce = (container) => {
   container.style.marginBottom = '0';
@@ -9,7 +9,7 @@ const containerHeight = (container) => {
 }
 
 export const validateInput = (value, warning, container = null) => {
-  const lang = tasksStorage.getLangLS();
+  const lang = cookiesStorage.getLanguage();
   
   if(container) containerReduce(container);
   if(value.trim() && !value.includes('-')) {

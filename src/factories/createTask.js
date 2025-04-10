@@ -1,11 +1,12 @@
 import tasksStorage from '@/store/tasks-storage';
+import cookiesStorage from '@/store/cookies-storage';
 import { createTask, modifyTask } from '@/use-cases/save-task';
 import { deleteTask } from '@/use-cases/delete-task';
 import { validateInput } from '@/validators/validateInput';
 import { changeTask } from '@/use-cases/cange-task';
 
 export const newTask = (id, value, divTodo, divComp, callback) => {
-  const lang = tasksStorage.getLangLS();
+  const lang = cookiesStorage.getLanguage();
 
   const container = document.createElement('div');
   container.id = id || tasksStorage.getHigherIdTaskLS() + 1;
