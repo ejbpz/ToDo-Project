@@ -1,8 +1,8 @@
-import tasksStorage from '../store/tasks-storage';
-import { createTask, modifyTask } from '../use-cases/save-task';
-import { deleteTask } from '../use-cases/delete-task';
-import { validateInput } from '../validators/validateInput';
-import { changeTask } from '../use-cases/cange-task';
+import tasksStorage from '@/store/tasks-storage';
+import { createTask, modifyTask } from '@/use-cases/save-task';
+import { deleteTask } from '@/use-cases/delete-task';
+import { validateInput } from '@/validators/validateInput';
+import { changeTask } from '@/use-cases/cange-task';
 
 export const newTask = (id, value, divTodo, divComp, callback) => {
   const lang = tasksStorage.getLangLS();

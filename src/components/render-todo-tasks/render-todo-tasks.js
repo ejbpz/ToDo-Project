@@ -1,5 +1,5 @@
-import { newTask } from '../../factories/createTask';
-import tasksStorage from '../../store/tasks-storage';
+import { newTask } from '@/factories/createTask';
+import tasksStorage from '@/store/tasks-storage';
 
 const todoTasks = tasksStorage.getTodoTasksLS();
 

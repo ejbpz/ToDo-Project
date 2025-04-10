@@ -1,4 +1,4 @@
-import tasksStorage from "../store/tasks-storage";
+import tasksStorage from "@/store/tasks-storage";
 import { modifyTask } from "./save-task";
 
 export const changeTask = (todoDiv, compDiv, parent) => {

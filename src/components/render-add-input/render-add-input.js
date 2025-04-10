@@ -1,4 +1,4 @@
-import { validateInput } from '../../validators/validateInput';
+import { validateInput } from '@/validators/validateInput';
 import './render-add-input.css';
 
 export const renderAddInput = (element, callback, titles) => {

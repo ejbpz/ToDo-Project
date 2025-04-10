@@ -1,6 +1,6 @@
-import { newTask } from '../../factories/createTask';
-import tasksStorage from '../../store/tasks-storage';
-import { changeTask } from '../../use-cases/cange-task';
+import { newTask } from '@/factories/createTask';
+import tasksStorage from '@/store/tasks-storage';
+import { changeTask } from '@/use-cases/cange-task';
 
 const compTasks = tasksStorage.getCompletedTasksLS();
 

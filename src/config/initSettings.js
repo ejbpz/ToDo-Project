@@ -1,4 +1,4 @@
-import tasksStorage from "../store/tasks-storage"
+import tasksStorage from "@/store/tasks-storage"
 
 export const getInitialSettings = () => {
   const theme = tasksStorage.getThemeLS();

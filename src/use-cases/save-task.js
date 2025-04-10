@@ -1,4 +1,4 @@
-import tasksStorage from "../store/tasks-storage";
+import tasksStorage from "@/store/tasks-storage";
 
 export const createTask = (id, value) => tasksStorage.newTaskLS(id, value + '-ToDo');
 

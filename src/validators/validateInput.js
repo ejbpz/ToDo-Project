@@ -1,4 +1,4 @@
-import tasksStorage from '../store/tasks-storage';
+import tasksStorage from '@/store/tasks-storage';
 
 const containerReduce = (container) => {
   container.style.marginBottom = '0';

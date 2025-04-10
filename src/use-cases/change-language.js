@@ -1,4 +1,4 @@
-import tasksStorage from "../store/tasks-storage";
+import tasksStorage from "@/store/tasks-storage";
 
 const changeContentLang = (langData, lang) => {
   document.querySelectorAll('[data-i18n]').forEach(element => {
