@@ -2,8 +2,9 @@ import { validateInput } from '@/validators/validateInput';
 import './render-add-input.css';
 
 export const renderAddInput = (element, callback, titles) => {
-  const container = document.createElement('div');
+  const container = document.createElement('form');
   container.classList.add('wraper-task');
+  container.noValidate = true;
 
   const input = document.createElement('input');
   input.classList.add('create__input-task');
@@ -12,11 +13,13 @@ export const renderAddInput = (element, callback, titles) => {
   input.name = 'InputAddTask';
   input.id = 'InputAddTask';
   input.autofocus = true;
+  input.required = true;
   input.type = 'text';
 
   const button = document.createElement('button');
   button.classList.add('create__button-add', 'inside-options');
   button.id = 'ButtonAddTask';
+  button.type = 'submit';
 
   const span = document.createElement('span');
   span.classList.add('material-icons', 'prevent-selected');
@@ -27,7 +30,9 @@ export const renderAddInput = (element, callback, titles) => {
   label.htmlFor = 'InputAddTask';
   label.id = 'WarningTask';
 
-  button.addEventListener('click', () => {
+
+  container.addEventListener('submit', (event) => {
+    event.preventDefault();
     let value = input.value;
     if(validateInput(value, label)) {
       input.value = '';
@@ -36,8 +41,6 @@ export const renderAddInput = (element, callback, titles) => {
       return task;
     }
   });
-
-  input.addEventListener('keypress', (e) => (e.key === 'Enter') ? button.click() : null);
 
   button.append(span);
   container.append(input, button, label);

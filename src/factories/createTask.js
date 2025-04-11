@@ -1,3 +1,4 @@
+import './createTask.css';
 import tasksStorage from '@/store/tasks-storage';
 import cookiesStorage from '@/store/cookies-storage';
 import { createTask, modifyTask } from '@/use-cases/save-task';

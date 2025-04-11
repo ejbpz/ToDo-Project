@@ -1,0 +1,70 @@
+.details {
+  top: 0;
+  right: 0;
+  width: 8%;
+  height: 100%;
+  position: absolute;
+  border: var(--border);
+  border-left: none;
+  border-radius: 0px 8px 8px 0;
+  background: var(--background-elements);
+}
+
+.details__container {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  align-self: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.details__button {
+  right: 0;
+  top: 23px;
+  border: none;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  padding-right: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.details__dropdown {
+  right: 0;
+  top: 44px;
+  z-index: 2;
+  display: none;
+  overflow: auto;
+  position: absolute;
+  outline: var(--border);
+  border-radius: 0 0 8px 8px;
+  background-color: var(--background-elements);
+}
+
+.details__option {
+  padding: 5px;
+  border: none;
+  display: none;
+  align-items: center;
+  background: transparent;
+  color: var(--text-colors);
+  border-radius: 0 0 8px 8px;
+}
+
+.details:hover {
+  border-radius: 0 8px 0 0;
+}
+
+.details:hover .details__option, .details:hover .details__dropdown {
+  display: flex;
+}
+
+.tasks-input:has(~ .details:hover) {
+  border-radius: 8px 8px 0 8px;
+}
+
+.details__option:active, .details__option:hover {
+  border-radius: var(--border-radius);
+}
