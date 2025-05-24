@@ -7,7 +7,7 @@ This project is focused on practicing:
 - Clean project structure and modern dev tooling 
 
 ## 🚀 Live Demo  
-Try it here 👉 [ToDo App Live](https://ejbpz.github.io/ToDo-Project/)
+Try it here 👉 [ToDo App Live](https://ejbpz.github.io/todo-app/)
 
 ## ✨ Features  
 ✔️ Add, edit, and delete tasks  
