@@ -20,7 +20,7 @@ Try it here 👉 [ToDo App Live](https://ejbpz.github.io/todo-app/)
 ### Instalation
 1. Clone repository
 ```sh
-git clone https://github.com/ejbpz/ToDo-Project.git
+git clone https://github.com/ejbpz/todo-app.git
 ```
 
 2. Install npm packages
