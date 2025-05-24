@@ -120,7 +120,6 @@ button {
   height: 45px;
   margin: 0 auto;
   position: relative;
-  cursor: grab;
 }
 
 .tasks-container {
